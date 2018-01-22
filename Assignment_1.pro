@@ -29,15 +29,16 @@ SOURCES += \
     paddle.cpp \
     ball.cpp \
     opponent.cpp \
-    wall.cpp
+    wall.cpp \
+    goal.cpp
 
 HEADERS += \
         #mainwindow.h \
     paddle.h \
     ball.h \
     opponent.h \
-    wall.h
+    wall.h \
+    goal.h
 
 FORMS += \
         mainwindow.ui
-

@@ -16,17 +16,14 @@ class Paddle : public QGraphicsItem
   QRectF boundingRect() const;
   void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
              QWidget *widget);
-
-
  protected:
-    void advance(int step);
-    void keyPressEvent(QKeyEvent *event);
-    void keyReleaseEvent(QKeyEvent *event);
-
+  void advance(int step);
+  void keyPressEvent(QKeyEvent *event);
+  void keyReleaseEvent(QKeyEvent *event);
  private:
-    float x;
-    float y;
-    float speed;
+  float x;
+  float y;
+  float speed;
     int input;
 };
 

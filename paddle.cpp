@@ -1,6 +1,7 @@
 #include "paddle.h"
 #include "wall.h"
 #include "ball.h"
+#include "opponent.h"
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QDebug>

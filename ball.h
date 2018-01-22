@@ -10,10 +10,12 @@ class ball : public QGraphicsItem
 float x;
 float y;
 ball();
+void reset();
 void Movement(QGraphicsItem *item);
 QRectF boundingRect() const;
 void paint(QPainter *painter, const QStyleOptionGraphicsItem *opt,
              QWidget *widget);
+
 
 private:
 float speed;

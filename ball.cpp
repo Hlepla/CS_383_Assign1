@@ -29,6 +29,15 @@ void ball::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
   painter->drawRect(QRectF(-10/2,-10/2,10,10));
 }
 
+void ball::reset()
+{
+  this->x=0;
+  this->y=0;
+  this->x_change = 1;
+  this->y_change = ((qrand() %100) -50)/1500.0;
+    setPos(x,y);
+}
+
 void ball::advance(int step)
 {
   if(!step)

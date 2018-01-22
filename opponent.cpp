@@ -7,6 +7,7 @@
 #include <QKeyEvent>
 #include <QWidget>
 #include <QDebug>
+#include <QGraphicsScene>
 
 Opponent::Opponent(int org_x, int org_y, QGraphicsItem *track)
 {
@@ -18,11 +19,8 @@ Opponent::Opponent(int org_x, int org_y, QGraphicsItem *track)
 
 void Opponent::advance(int step)
 {
-  ball derived_cordx,derived_cordy;
-
   if(!step)
     return;
-
   float ball_y = track->scenePos().y();
   setPos(QPointF(-x_cord,ball_y));
   update();
