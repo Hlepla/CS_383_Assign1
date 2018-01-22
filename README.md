@@ -37,7 +37,7 @@ Hayden Lepla - Initial work
 Alex McNurlin -Assistance and quality assurance
 
 License
-This project is free software and 
+This project is free software and comes with no warrenty. Use at your own risk!
 
 Acknowledgments
 Hat tip to anyone who's code was used
