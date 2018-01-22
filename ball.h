@@ -5,20 +5,23 @@
 
 class ball : public QGraphicsItem
 {
+
  public:
-  ball();
-  void Movement(int x,int y, int speed);
-  QRectF boundingRect() const;
-  void paint(QPainter *painter, const QStyleOptionGraphicsItem *opt,
+float x;
+float y;
+ball();
+void Movement(QGraphicsItem *item);
+QRectF boundingRect() const;
+void paint(QPainter *painter, const QStyleOptionGraphicsItem *opt,
              QWidget *widget);
 
- private:
-  int x;
-  int y;
-  int speed;
+private:
+float speed;
+float x_change;
+float y_change;
+protected:
+void advance(int step);
 
- protected:
-  void advance(int step);
 };
 
 #endif

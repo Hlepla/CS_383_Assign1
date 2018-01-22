@@ -1,16 +1,19 @@
 #include "paddle.h"
+#include "wall.h"
+#include "ball.h"
 #include <QGraphicsItem>
 #include <QPainter>
 #include <QDebug>
 #include <QApplication>
 #include <QKeyEvent>
 #include <QWidget>
+#include <QGraphicsScene>
 
 Paddle::Paddle(int x, int y)
 {
   this->x = x;
   this->y = y;
-  this->speed = 1;
+  this->speed = .5;
   this->input = 0;
 }
 
@@ -29,8 +32,22 @@ void Paddle::advance(int step)
   if(!step)
     return;
 
-  //this->y += this->get_direction();
-  setPos(QPointF(0,y-=10 *this->get_direction()));
+  QRectF paddle_location = boundingRect();
+  float y_change;
+  y_change -= 10 *this->get_direction();
+  paddle_location.translate(0,y_change);
+
+  QList<QGraphicsItem *> nearItems = scene()->items(mapToScene(paddle_location));
+  foreach(QGraphicsItem *item, nearItems)
+    {
+      if(typeid(*item) == typeid(Wall))
+        {
+
+          return;
+        }
+      break;
+    }
+  setPos(QPointF(x,y-=10 *this->get_direction()));
   update();
   this->setFocus();
 }
@@ -49,7 +66,6 @@ void Paddle::keyPressEvent(QKeyEvent *event)
       break;
     }
 }
-
 void Paddle::keyReleaseEvent(QKeyEvent *event)
 {
   this->set_direction(0);

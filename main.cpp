@@ -1,6 +1,8 @@
 #include "paddle.h"
 #include "ball.h"
+#include "opponent.h"
 #include "mainwindow.h"
+#include "wall.h"
 #include <QApplication>
 #include <QGraphicsItem>
 #include <QGraphicsScene>
@@ -26,14 +28,20 @@ int main(int argc, char **argv)
     view.setWindowTitle("CS383 Assgn_1");
     view.show();
 
-    Paddle *pointer1= new Paddle(-10,0);
-    ball *b = new ball;
+    ball *b = new ball();
+    Paddle *pointer1 = new Paddle(300,0); // set position of objects
+    Opponent *pointer2 = new Opponent(300,0,b);
+    Wall *T_w = new Wall(0,400);
+    Wall *B_w = new Wall(0,-400);
 
     pointer1->setFlag(QGraphicsItem::ItemIsFocusable);
     pointer1->QGraphicsItem::setFocus();
 
     scene.addItem(pointer1);
+    scene.addItem(pointer2);
     scene.addItem(b);
+    scene.addItem(T_w);
+    scene.addItem(B_w);
 
     QTimer timer;
     QObject::connect(&timer,SIGNAL(timeout()),&scene, SLOT(advance())); // determines refresh rate
