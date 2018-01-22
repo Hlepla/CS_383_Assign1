@@ -41,5 +41,3 @@ This project is free software and
 
 Acknowledgments
 Hat tip to anyone who's code was used
-Inspiration
-etc
